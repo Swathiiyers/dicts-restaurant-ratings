@@ -1,5 +1,17 @@
 """Restaurant rating lister."""
 
+
+def ask_user_input():
+    """prompt user to enter new restaurant and rating, 
+    return these values to the calling function
+    """
+    new_restaurant = raw_input("Enter a new restaurant:")
+    new_rating = raw_input("Enter a new rating: ")
+
+    return new_restaurant, new_rating
+    
+
+
 def read_ratings(file_path):
     """Given a file, prints ratings in alphabetical order by restaurant."""
 
@@ -19,11 +31,23 @@ def read_ratings(file_path):
             # Adding key-value pairs to dictionary.
             restaurant_ratings[restaurant] = rating
 
-        # Sort dictionary. Iterate over key value pairs.
-        for restaurant, rating in sorted(restaurant_ratings.items()):
-            # Print restaurant and rating statement.
-            print restaurant + " is rated at " + rating
+        return restaurant_ratings
 
+
+def add_rating(restaurant_ratings):
+    """Adds user restaurant and rating to dictionary."""
+
+    restaurant, rating = ask_user_input()
+    restaurant_ratings[restaurant] = rating
+
+    # Sort dictionary. Iterate over key value pairs.
+    for restaurant, rating in sorted(restaurant_ratings.items()):
+        # Print restaurant and rating statement.
+        print restaurant + " is rated at " + rating
+
+    #add_user_rating(restaurant_ratings)
 
 # Call function.
-read_ratings('scores.txt')
+file_dictionary = read_ratings('scores.txt')
+add_rating(file_dictionary)
+
