@@ -6,10 +6,18 @@ def ask_user_input():
     return these values to the calling function
     """
     new_restaurant = raw_input("Enter a new restaurant:")
-    new_rating = raw_input("Enter a new rating: ")
 
+    new_rating = raw_input("Enter a new rating: ")
     return new_restaurant, new_rating
-    
+
+#Trying to add validation for the rating betwen 1 and 5:  
+    # while True:
+    #     if new_restaurant in range(1, 6):
+            
+    #     else:
+    #         print "Enter a rating between 1 and 5"
+    #     break
+
 
 
 def read_ratings(file_path):
